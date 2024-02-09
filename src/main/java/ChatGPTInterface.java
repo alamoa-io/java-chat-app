@@ -9,7 +9,7 @@ public class ChatGPTInterface {
     private JButton sendButton;
 
     public ChatGPTInterface() {
-        ChatApiAccess chatApiAccess = new ChatApiAccess();
+        ChatApiAccessWithLibrary chatApiAccess = new ChatApiAccessWithLibrary();
         JFrame frame = new JFrame("ChatGPT Interface");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 400);
