@@ -13,13 +13,12 @@ public class ChatApiAccessWithLibrary {
     RequestBase requestBase = new RequestBase();
 
     protected String getResponse(String userInput){
-        ChatCompletion chatCompletion = null;
         StringBuilder sb = new StringBuilder();
         try {
             HttpRequest request = requestBase.makeChatRequest(userInput);
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             ObjectMapper mapper = new ObjectMapper();
-            chatCompletion = mapper.readValue(response.body(), ChatCompletion.class);
+            ChatCompletion chatCompletion = mapper.readValue(response.body(), ChatCompletion.class);
             chatCompletion.getChoices().forEach(choice -> sb.append(choice.getMessage().getContent()));
 
         } catch (IOException | InterruptedException e) {
@@ -27,7 +26,4 @@ public class ChatApiAccessWithLibrary {
         }
         return sb.toString();
     }
-
-
-
 }
