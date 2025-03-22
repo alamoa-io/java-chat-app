@@ -8,7 +8,7 @@ import java.net.URL;
 
 public class ChatApiAccess {
     //濫用厳禁(5$しか課金してない)
-    final static String apiKey = "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";
+    final static String apiKey = "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";
     final static String apiUrl = "https://api.openai.com/v1/chat/completions";
     final static String model = "gpt-3.5-turbo";
 

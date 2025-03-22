@@ -5,6 +5,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 public class ChatCompletion {
+    private String id;
+    private String object;
+    private long created;
+    private String model;
+    @JsonProperty("system_fingerprint")
+    private String systemFingerprint;
+    private List<Choice> choices;
+    private Usage usage;
+    @JsonProperty("service_tier")
+    private String serviceTier;
+
     public String getId() {
         return id;
     }
@@ -61,17 +72,12 @@ public class ChatCompletion {
         this.usage = usage;
     }
 
-    private String id;
-    private String object;
-    private long created;
-    private String model;
-    @JsonProperty("system_fingerprint")
-    private String systemFingerprint;
-    private List<Choice> choices;
-    private Usage usage;
-
-
-
+    public String getServiceTier() {
+        return serviceTier;
+    }
+    public void setServiceTier(String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
 
 }
 

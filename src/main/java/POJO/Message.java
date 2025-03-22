@@ -1,8 +1,21 @@
 package POJO;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Message {
-    private String role;
     private String content;
+    private String role;
+    private String refusal;
+
+    // Getters and setters
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public String getRole() {
         return role;
@@ -12,12 +25,11 @@ public class Message {
         this.role = role;
     }
 
-    public String getContent() {
-        return content;
+    public String getRefusal() {
+        return refusal;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setRefusal(String refusal) {
+        this.refusal = refusal;
     }
 }
-

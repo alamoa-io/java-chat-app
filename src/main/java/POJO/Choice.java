@@ -8,6 +8,8 @@ public class Choice {
     private Object logprobs; // ここでは具体的な型が不明なのでObjectを使用
     @JsonProperty("finish_reason")
     private String finishReason;
+    private String refusal;
+
 
     public int getIndex() {
         return index;
@@ -39,6 +41,14 @@ public class Choice {
 
     public void setFinishReason(String finishReason) {
         this.finishReason = finishReason;
+    }
+
+    public String getRefusal() {
+        return refusal;
+    }
+
+    public void setRefusal(String refusal) {
+        this.refusal = refusal;
     }
 }
 

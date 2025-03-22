@@ -9,6 +9,10 @@ public class Usage {
     private int completionTokens;
     @JsonProperty("total_tokens")
     private int totalTokens;
+    @JsonProperty("prompt_tokens_details")
+    private PromptTokenDetail promptTokensDetails;
+    @JsonProperty("completion_tokens_details")
+    private CompletionTokenDetail completionTokensDetails;
 
     public int getPromptTokens() {
         return promptTokens;
@@ -33,5 +37,20 @@ public class Usage {
     public void setTotalTokens(int totalTokens) {
         this.totalTokens = totalTokens;
     }
-}
 
+    public PromptTokenDetail getPromptTokensDetails() {
+        return promptTokensDetails;
+    }
+
+    public void setPromptTokensDetails(PromptTokenDetail promptTokensDetails) {
+        this.promptTokensDetails = promptTokensDetails;
+    }
+
+    public CompletionTokenDetail getCompletionTokensDetails() {
+        return completionTokensDetails;
+    }
+
+    public void setCompletionTokensDetails(CompletionTokenDetail completionTokensDetails) {
+        this.completionTokensDetails = completionTokensDetails;
+    }
+}
