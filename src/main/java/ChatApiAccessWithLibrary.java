@@ -17,7 +17,6 @@ public class ChatApiAccessWithLibrary {
         try {
             HttpRequest request = requestBase.makeChatRequest(userInput);
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println(response.body());
             ObjectMapper mapper = new ObjectMapper();
             ChatCompletion chatCompletion = mapper.readValue(response.body(), ChatCompletion.class);
             chatCompletion.getChoices().forEach(choice -> sb.append(choice.getMessage().getContent()));

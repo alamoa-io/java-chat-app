@@ -23,7 +23,7 @@ public class RequestBase {
 
         return  HttpRequest.newBuilder()
                 .uri(URI.create("https://api.openai.com/v1/chat/completions"))
-                .header("Authorization","Bearer " + "ここにAPIキーを入力")
+                .header("Authorization","Bearer " + "")
                 .header("Content-Type","application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(body))
                 .build();
