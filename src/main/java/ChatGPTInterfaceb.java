@@ -2,16 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.nio.file.Path;
 
-public class ChatGPTInterface {
+public class ChatGPTInterfaceb {
     private JTextArea chatArea;
     private JTextField inputField;
     private JButton sendButton;
 
-    public ChatGPTInterface() {
+    public ChatGPTInterfaceb() {
         ChatApiAccessWithLibrary chatApiAccess = new ChatApiAccessWithLibrary();
-        ChatApiAccessWithOfficialLibrary officialLibraryAccess = new ChatApiAccessWithOfficialLibrary();
         JFrame frame = new JFrame("ChatGPT Interface");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 400);
@@ -24,8 +22,7 @@ public class ChatGPTInterface {
         chatArea.setEditable(false);
         chatArea.setWrapStyleWord(true);
         chatArea.setLineWrap(true);
-
-        JScrollPane scrollPane = new JScrollPane(chatArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        JScrollPane scrollPane = new JScrollPane(chatArea);
         inputField = new JTextField();
         sendButton = new JButton("Send");
 
@@ -50,33 +47,9 @@ public class ChatGPTInterface {
         // Add chat panel to tabbed pane
         tabbedPane.addTab("Chat", chatPanel);
 
-        // Audio Convert tab
-        JPanel audioPanel = new JPanel(new BorderLayout());
-        JTextArea audioResponseArea = new JTextArea();
-        audioResponseArea.setEditable(false);
-        audioResponseArea.setWrapStyleWord(true);
-        audioResponseArea.setLineWrap(true);
-        JScrollPane audioScrollPane = new JScrollPane(audioResponseArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        JButton selectFileButton = new JButton("Select File");
-
-        selectFileButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
-                int returnValue = fileChooser.showOpenDialog(null);
-                if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    Path selectedFile = fileChooser.getSelectedFile().toPath();
-                    String response = officialLibraryAccess.getResponse(selectedFile);
-                    audioResponseArea.setText(response);
-                }
-            }
-        });
-
-        audioPanel.add(audioScrollPane, BorderLayout.CENTER);
-        audioPanel.add(selectFileButton, BorderLayout.SOUTH);
-
-        // Add audio panel to tabbed pane
-        tabbedPane.addTab("Audio Convert", audioPanel);
+        // Another tab (e.g., Settings)
+        JPanel settingsPanel = new JPanel();
+        tabbedPane.addTab("Audio Convert", settingsPanel);
 
         frame.add(tabbedPane, BorderLayout.CENTER);
         frame.setVisible(true);
